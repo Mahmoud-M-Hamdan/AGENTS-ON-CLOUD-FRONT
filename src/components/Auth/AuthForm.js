@@ -30,10 +30,10 @@ const AuthForm = () => {
     let url;
     if (isLogin) {
       url =
-        'http://localhost:3000/users/login';
+        'http://localhost:3040/users/login';
     } else {
       url =
-        'http://localhost:3000/users';
+        'http://localhost:3040/users';
     }
     fetch(url, {
       method: 'POST',

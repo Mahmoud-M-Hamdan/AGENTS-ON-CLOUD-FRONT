@@ -1,10 +1,10 @@
 import { useContext } from "react";
 
-import MealItemForm from "./ItemForm";
+import ItemItemForm from "./ItemForm";
 import classes from "./lItem.module.css";
 import CartContext from "../../../store/cart-context";
 import AuthContext from "../../../store/auth-context";
-const MealItem = (props) => {
+const ItemItem = (props) => {
   const cartCtx = useContext(CartContext);
   const authCtx = useContext(AuthContext);
 
@@ -28,17 +28,17 @@ const MealItem = (props) => {
   };
 
   return (
-    <li className={classes.meal}>
+    <li className={classes.Item}>
       <div>
         <h3>{props.name}</h3>
         <div className={classes.description}>{props.description}</div>
         <div className={classes.price}>{price}</div>
       </div>
       <div>
-        <MealItemForm onAddToCart={islog} />
+        <ItemItemForm onAddToCart={islog} />
       </div>
     </li>
   );
 };
 
-export default MealItem;
+export default ItemItem;

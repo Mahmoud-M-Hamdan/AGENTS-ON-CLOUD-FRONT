@@ -1,56 +1,56 @@
 import Card from "../UI/Card";
-import MealItem from "./lItem/lItem";
+import ItemItem from "./lItem/lItem";
 import classes from "./AvailableItems.module.css";
 import { useState, useEffect } from "react";
 
-const AvailableMeals = () => {
-  // const meals = [{
+const AvailableItems = () => {
+  // const Items = [{
   //   name: "ggsdg",
   //   id: 5544,
   //   description: "ryreyer yry er",
   //   price: 20,
   // }];
-  const [meals, setMeals] = useState([]);
+  const [Items, setItems] = useState([]);
 
   useEffect(() => {
-    const fetchMeals = async () => {
-      const response = await fetch('http://localhost:3000/tasks');
+    const fetchItems = async () => {
+      const response = await fetch('http://localhost:3040/tasks');
       const responseData = await response.json();
 
-      const loadedMeals = [];
+      const loadedItems = [];
 
       for (const key in responseData) {
-        loadedMeals.push({
+        loadedItems.push({
           id: responseData[key]._id,
           name: responseData[key].name,
           description: responseData[key].description,
           price: responseData[key].price,
         });
       }
-      console.log(loadedMeals)
+      console.log(loadedItems)
 
-      setMeals(loadedMeals);
+      setItems(loadedItems);
     };
 
-    fetchMeals();
+    fetchItems();
   }, []);
-  const mealsList = meals.map((meal) => (
-    <MealItem
-      key={meal.id}
-      id={meal.id}
-      name={meal.name}
-      description={meal.description}
-      price={meal.price}
+  const ItemsList = Items.map((Item) => (
+    <ItemItem
+      key={Item.id}
+      id={Item.id}
+      name={Item.name}
+      description={Item.description}
+      price={Item.price}
     />
   ));
 
   return (
-    <section className={classes.meals}>
+    <section className={classes.Items}>
       <Card>
-        <ul>{mealsList}</ul>
+        <ul>{ItemsList}</ul>
       </Card>
     </section>
   );
 };
 
-export default AvailableMeals;
+export default AvailableItems;

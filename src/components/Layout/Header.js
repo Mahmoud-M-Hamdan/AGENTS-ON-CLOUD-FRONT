@@ -1,6 +1,6 @@
 import { Fragment, useContext } from "react";
 import HeaderCartButton from "./HeaderCartButton";
-import mealsImage from "../../assets/shop.jpg";
+import ItemsImage from "../../assets/shop.jpg";
 import classes from "./Header.module.css";
 import AddItemButton from "./AddItemButton";
 import MainNavigation from "./MainNavigation";
@@ -19,7 +19,7 @@ const Header = (props) => {
         <MainNavigation />
       </header>
       <div className={classes["main-image"]}>
-        <img src={mealsImage} alt="A table full of delicious food!" />
+        <img src={ItemsImage} alt="Shop" />
       </div>
     </Fragment>
   );
